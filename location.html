@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit von Lara und Tobi | Locations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg-base: #dee7d9; 
+            --text: #4a4a4a; 
+            --gold: #d4af37; 
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--text); 
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Linien entfernt, nur die Basis-Farbe bleibt */
+            background-color: var(--bg-base);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Navigationsbereich */
+        nav { 
+            position: fixed; top: 0; width: 100%; display: flex; 
+            justify-content: center; align-items: center;
+            height: 90px !important; padding: 0 !important;
+            background: rgba(255,255,255,0.95); z-index: 2000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav a { 
+            font-size: 1rem !important; margin: 0 15px !important; 
+            letter-spacing: 2px !important; font-weight: 600 !important;
+            text-decoration: none; color: #5a5a5a; text-transform: uppercase;
+            position: relative; padding-bottom: 4px; transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--gold); }
+        nav a::after { 
+            content: ''; position: absolute; bottom: 0; left: 50%; 
+            width: 0; height: 1px; background: var(--gold); 
+            transition: 0.3s; transform: translateX(-50%); 
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* Header Bereich */
+        header { 
+            padding-top: 200px !important; 
+            padding-bottom: 40px; 
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out; 
+        }
+
+        .fancy-title { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4.5rem; 
+            color: var(--gold); 
+            margin: 0; 
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            line-height: 1.1;
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 7px; 
+            font-size: 2.2rem; 
+            color: #4a4a4a; 
+            margin: 10px 0 0 0; 
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Location Grid */
+        .location-container {
+            display: flex; justify-content: center; gap: 30px;
+            max-width: 1000px; margin: 20px auto 100px auto; 
+            padding: 0 20px; flex-wrap: wrap;
+        }
+
+        .location-card {
+            flex: 1; min-width: 300px; max-width: 420px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 35px; border-radius: 15px;
+            text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex; flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .location-card:hover { 
+            transform: translateY(-12px); background: white;
+            border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .icon { font-size: 2.8rem; margin-bottom: 15px; display: block; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; margin: 5px 0; color: #222; }
+        .tag { font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; display: block; }
+        .address { font-size: 1.05rem; margin-bottom: 30px; color: #555; }
+
+        .map-btn {
+            display: inline-block; padding: 16px 32px; background: #333;
+            color: white; text-decoration: none; border-radius: 50px; 
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; 
+            font-weight: 600; transition: 0.3s; margin-top: auto;
+        }
+
+        .map-btn:hover { background: var(--gold); box-shadow: 0 10px 20px rgba(184, 151, 47, 0.3); }
+
+      /* Responsive Anpassungen */
+@media (max-width: 600px) {
+    /* NAVIGATION: Synchron mit 60px */
+    nav { 
+        height: 70px !important; 
+    }
+    nav a { 
+        font-size: 0.75rem !important; 
+        margin: 0 6px !important; 
+        letter-spacing: 1px !important; 
+    }
+
+    /* HEADER: Kompakt damit man direkt Inhalt sieht */
+    header { 
+        padding-top: 100px !important; 
+    }
+    .fancy-title { 
+        font-size: 2.8rem !important; /* Deutlich kleiner für scale 1.0 */
+    }
+    h1 { 
+        font-size: 1.3rem !important; 
+        letter-spacing: 3px !important; 
+    }
+
+    /* LOCATION CARDS: Breite fixieren gegen das Springen */
+    .location-card { 
+        width: 100% !important; 
+        min-width: unset !important; 
+        padding: 30px 20px !important; /* Etwas weniger Innenabstand */
+        box-sizing: border-box !important; /* WICHTIG: Damit Padding die 100% nicht sprengt */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="location.html">Location</a>
+        <a href="ablauf.html">Ablauf</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+
+    <header>
+        <p class="fancy-title">Unsere Locations</p>
+        <h1>Wo wir feiern</h1>
+    </header>
+
+    <main class="location-container">
+        <div class="location-card">
+            <div>
+                <span class="icon">⛪</span>
+                <span class="tag">Trauung</span>
+                <h2>Die Kirche</h2>
+                <div class="address">
+                    <p>Stiftskirche Kleve<br> Kapitelstraße 8, 47533 Kleve</p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps/place/Stifts-+und+Propsteikirche+St.+Mari%C3%A4+Himmelfahrt/@51.7846905,6.136689,1171m/data=!3m3!1e3!4b1!5s0x47c776a9cddd29a3:0xa5ff9622fc59a3f1!4m6!3m5!1s0x47c776a9d261f39d:0x2b79521eee305e58!8m2!3d51.7846905!4d6.136689!16s%2Fg%2F11rr6xjv36?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">Route zur Kirche</a>
+        </div>
+
+        <div class="location-card">
+            <div>
+                <span class="icon">🥂</span>
+                <span class="tag">Feier</span>
+                <h2>Die Gemeinde</h2>
+                <div class="address">
+                    <p>Evangelische Freie Gemeinde Kleve<br>Treppkesweg 35, 47533 Kleve</p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps/place/Evangelische+Freie+Gemeinde+Kleve/@51.7779733,6.1077697,1171m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c773f57cbfdfc5:0xd394afba9fa2dfe7!8m2!3d51.77797!4d6.11035!16s%2Fg%2F1tfw281t?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">Route zur Feier</a>
+        </div>
+    </main>
+
+</body>
+</html>

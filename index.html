@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit von Lara und Tobi | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --text: #5a5a5a; 
+            --gold: #d4af37; 
+            --light-bg: #ffffff; 
+        }
+
+        body { 
+            margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; 
+            background-color: white; color: var(--text); text-align: center; 
+            overflow-x: hidden; user-select: none; -webkit-user-select: none;
+        }
+
+        nav { 
+            position: fixed; top: 0; width: 100%; display: flex; 
+            justify-content: center; align-items: center;
+            height: 90px; padding: 0;
+            background: rgba(255,255,255,0.95); z-index: 2000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav a { 
+            font-size: 1rem; margin: 0 15px; 
+            letter-spacing: 2px; font-weight: 600;
+            text-decoration: none; color: #5a5a5a; text-transform: uppercase;
+            position: relative; padding-bottom: 4px; transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--gold); }
+        nav a::after { 
+            content: ''; position: absolute; bottom: 0; left: 50%; 
+            width: 0; height: 1px; background: var(--gold); 
+            transition: 0.3s; transform: translateX(-50%); 
+        }
+        nav a:hover::after { width: 100%; }
+
+        header { 
+            padding-top: 200px; 
+            padding-bottom: 80px; 
+            animation: fadeIn 1.5s ease-in-out; 
+        }
+        
+        .fancy-title { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4.5rem; 
+            color: var(--gold); 
+            margin: 0 0 30px 0;
+            font-weight: 400;
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 7px; 
+            font-size: 2.8rem; 
+            margin: 0 0 25px 0; 
+            color: #4a4a4a; 
+        }
+
+        .date { 
+            letter-spacing: 10px; 
+            font-size: 1rem; 
+            opacity: 0.7; 
+            margin-top: 20px;
+        }
+
+        .hero-box { 
+            width: 85%; max-width: 1100px; margin: 40px auto 100px auto; 
+            border-radius: 25px; 
+            overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.08); 
+        }
+        .hero-box img { width: 100%; display: block; transition: transform 0.8s; }
+        .hero-box:hover img { transform: scale(1.03); }
+
+        .intro-text { 
+            max-width: 750px; 
+            margin: 100px auto 60px auto; 
+            padding: 0 30px; 
+            font-size: 1.2rem; 
+            line-height: 2.0; 
+            color: #777;
+            font-weight: 300;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 60px auto; /* Margin unten auf 60px verringert */
+            padding: 0 30px;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 40px 25px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        /* FOOTER COUNTDOWN SECTION */
+        .countdown-sentence-section {
+            background-color: var(--light-bg);
+            padding: 60px 20px 100px 20px; /* Padding oben auf 60px verringert */
+            margin-top: 20px; /* Margin oben verringert */
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .countdown-sentence {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .countdown-number {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE ANPASSUNGEN FÜR HANDY */
+        @media (max-width: 600px) {
+            nav { height: 70px !important; }
+            nav a { font-size: 0.75rem !important; margin: 0 6px !important; letter-spacing: 1px !important; }
+            header { padding-top: 110px !important; padding-bottom: 20px !important; }
+            .fancy-title { font-size: 2.8rem !important; margin-bottom: 5px !important; }
+            h1 { font-size: 1.4rem !important; letter-spacing: 3px !important; }
+
+            .countdown-sentence { font-size: 1.3rem !important; }
+            .countdown-sentence-section { padding: 40px 20px; }
+            .intro-text { margin: 60px auto 40px auto; font-size: 1rem; }
+            .info-container { margin-bottom: 40px; }
+            .hero-box { margin-bottom: 40px; }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="location.html">Location</a>
+        <a href="ablauf.html">Ablauf</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+
+    <header>
+        <p class="fancy-title">Herzlich Willkommen</p>
+        <h1>Lara & Tobi</h1>
+        <p class="date">10 . 10 . 2026</p>
+    </header>
+
+    <div class="hero-box">
+        <img src="bild.hmg.jpg" alt="Unser Moment">
+    </div>
+
+    <div class="intro-text">
+        <p>Schön, dass ihr da seid! Wir können es kaum erwarten, unseren großen Tag mit euch zu feiern. Auf dieser Seite findet ihr alle Details zu unserer Hochzeit. Über den Menüpunkt Feedback könnt ihr uns ganz einfach eure Zusage schicken.</p>
+    </div>
+
+    <div class="info-container">
+        <div class="info-card">
+            <h3>Dresscode</h3>
+            <p>Come as you are.<br>Wir freuen uns wenn ihr so kommt, wie ihr euch wohl fühlt.</p>
+        </div>
+        <div class="info-card">
+            <h3>Geschenke</h3>
+            <p>Eure Anwesenheit ist das größte Geschenk. Wer uns dennoch etwas Gutes tun möchte, darf uns gerne mit Geld unterstützen.</p>
+        </div>
+        <div class="info-card">
+            <h3>Handynutzung</h3>
+            <p>Bitte lasst die Handys während der Trauung in der Tasche. Wir haben Fotografen vor Ort. Danach dürft ihr gerne mit euren Schnappschüssen starten.</p>
+        </div>
+       <div class="info-card">
+    <h3>Kontakt</h3>
+    <p>Fragen, Spielvorschläge oder Überraschungen? Meldet euch gerne bei unseren Trauzeugen:</p>
+    <p style="margin-top: 10px;">
+        <strong>Sovanna:</strong> <a href="tel:+49 1577 8322031" style="text-decoration: none; color: inherit;">+49 1577 8322031</a><br>
+        <strong>Jonas:</strong> <a href="tel:+49 176 20175065" style="text-decoration: none; color: inherit;">+49 176 20175065</a>
+    </p>
+</div>
+    </div>
+
+    <section class="countdown-sentence-section">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #d4af37; margin-bottom: 20px;">Vorfreude ist die schönste Freude</p>
+            <h2 class="countdown-sentence">
+                Wir können es kaum erwarten! <br> 
+                In genau 
+                <span id="d" class="countdown-number">00</span> Tagen, 
+                <span id="h" class="countdown-number">00</span> Stunden und  
+                <span id="m" class="countdown-number">00</span> Minuten 
+                ist es endlich soweit – <br>
+                und wir dürfen diesen besonderen Moment mit euch allen teilen.
+            </h2>
+            <p style="margin-top: 40px; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; opacity: 0.5;">
+                Bis bald, Lara & Tobi
+            </p>
+        </div>
+    </section>
+
+    <script>
+        function startCountdown() {
+            const target = new Date("October 10, 2026 14:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = target - now;
+                if (diff < 0) return;
+                
+                document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            }, 1000);
+        }
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>

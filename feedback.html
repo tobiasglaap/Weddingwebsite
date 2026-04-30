@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit von Lara und Tobi | Feedback</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Konfetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root { 
+            --text: #5a5a5a; 
+            --gold: #d4af37; 
+            --bg: #f0f4fa;
+        }
+        
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--text); 
+            background-color: var(--bg);
+            line-height: 1.5;
+            user-select: none;
+            -webkit-user-select: none;
+            text-align: center;
+        }
+
+        nav { 
+            position: fixed; top: 0; width: 100%; display: flex; 
+            justify-content: center; align-items: center;
+            height: 90px; background: rgba(255,255,255,0.95); 
+            z-index: 2000; box-shadow: 0 2px 15px rgba(0,0,0,0.03); 
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav a { 
+            font-size: 1rem; margin: 0 15px; letter-spacing: 2px; 
+            font-weight: 600; text-decoration: none; color: #5a5a5a; 
+            text-transform: uppercase; position: relative; padding-bottom: 4px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 1px; background: var(--gold); transition: 0.3s; transform: translateX(-50%); }
+        nav a:hover::after { width: 100%; }
+
+        header { 
+            padding-top: 180px; /* Etwas mehr Platz nach oben */
+            padding-bottom: 40px; /* Abstand zur Karte vergrößert */
+            text-align: center; 
+        }
+        
+        .fancy-title { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4.5rem; 
+            color: var(--gold); 
+            margin: 0; 
+            font-weight: 400;
+            animation: fadeInTitle 2s ease-in-out;
+        }
+
+        @keyframes fadeInTitle {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .deadline { 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            color: #999; 
+            margin-top: 5px; 
+            font-weight: 500;
+            animation: fadeInTitle 2.5s ease-in-out;
+        }
+
+        .form-card {
+            max-width: 450px; 
+            margin: 60px auto 100px auto; /* Margin-top von 30px auf 60px erhöht */
+            background: white; 
+            padding: 40px 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+            width: 88%;
+            position: relative;
+        }
+
+        form { display: flex; flex-direction: column; gap: 18px; text-align: left; }
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: #999; }
+
+        input, select, textarea { 
+            padding: 12px 15px; border: 1px solid #eee; border-radius: 8px; 
+            font-family: inherit; font-size: 0.95rem; color: var(--text);
+            outline: none; transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+
+        .submit-btn { 
+            background: var(--gold); color: white; border: none; padding: 16px; 
+            border-radius: 40px; cursor: pointer; text-transform: uppercase; 
+            letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; transition: 0.3s;
+            text-align: center; margin-top: 10px; display: block; width: 100%;
+        }
+
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+
+@media (max-width: 600px) {
+        /* NAVIGATION: Synchron zu den anderen Seiten */
+        nav { 
+            height: 70px !important; 
+        }
+        nav a { 
+            font-size: 0.75rem !important; 
+            margin: 0 6px !important; 
+            letter-spacing: 1px !important; 
+        }
+
+        /* HEADER: Deutlich kompakter, damit die Box nach oben rückt */
+        header { 
+            padding-top: 90px !important; 
+            padding-bottom: 10px !important; 
+        }
+
+        /* TITEL & DEADLINE: Kleiner und enger beisammen */
+        .fancy-title { 
+            font-size: 3.0 !important; 
+            margin-bottom: 2px !important;
+        }
+
+        .deadline {
+            font-size: 0.65rem !important;
+            letter-spacing: 1px !important;
+        }
+
+        /* FORM-CARD: Kompakteres Design */
+        .form-card { 
+            width: calc(100% - 40px) !important; 
+            margin: 15px auto 40px auto !important; 
+            padding: 25px 20px !important; 
+            box-sizing: border-box !important;
+        }
+
+        /* Formular-Elemente: Platzsparender */
+        form { gap: 12px !important; }
+        
+        .input-group label {
+            font-size: 0.6rem !important;
+            margin-bottom: 2px !important;
+        }
+
+        input, select, textarea {
+            padding: 10px !important;
+            font-size: 16px !important; /* Wichtig gegen iOS-Auto-Zoom */
+        }
+
+        .submit-btn {
+            padding: 14px !important;
+            font-size: 0.75rem !important;
+            margin-top: 5px !important;
+        }
+    }
+    </style>
+</head>
+<body ontouchstart="">
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="location.html">Location</a>
+        <a href="ablauf.html">Ablauf</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+
+    <header>
+        <p class="fancy-title">Feedback</p>
+        <p class="deadline">Antwort bitte bis 10. August 2026</p>
+    </header>
+
+    <main class="form-card">
+        <form id="rsvpForm">
+            <div class="input-group">
+                <label>Namen</label>
+                <input type="text" id="name" placeholder="Eure Namen" required>
+            </div>
+
+            <div class="input-group">
+                <label>Zusage</label>
+                <select id="status">
+                    <option>Ich bin / Wir sind dabei! ✨</option>
+                    <option>Ich kann / Wir können leider nicht kommen</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Euer Song für die Tanzfläche 💃</label>
+                <input type="text" id="song" placeholder="Interpret - Titel">
+            </div>
+
+            <div class="input-group">
+                <label>Nachricht & Allergien</label>
+                <textarea id="info" rows="3" placeholder="Anzahl Personen, Veggie, Allergien oder liebe Worte..."></textarea>
+            </div>
+
+            <button type="button" onclick="sendMail()" class="submit-btn">Rückmeldung per E-Mail</button>
+        </form>
+    </main>
+
+    <footer style="padding-bottom: 60px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 2px; text-align: center;">
+        TOBI & LARA | 10.10.2026
+    </footer>
+
+    <script>
+        function sendMail() {
+            const name = document.getElementById('name').value;
+            const status = document.getElementById('status').value;
+            const song = document.getElementById('song').value;
+            const info = document.getElementById('info').value;
+            
+            if (!name) {
+                alert("Bitte tragt eure Namen ein.");
+                return;
+            }
+
+            // 1. KONFETTI REGEN
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#d4af37', '#f9e29c', '#ffffff']
+            });
+
+            // 2. MAIL ÖFFNEN
+            setTimeout(() => {
+                const myEmail = "tobias.glaap@gmail.com";
+                const subject = encodeURIComponent("Hochzeit Feedback: " + name);
+                
+                const body = encodeURIComponent(
+                    "Hallo Tobi & Lara,\n\n" +
+                    "hier ist unsere Rückmeldung:\n\n" +
+                    "Name(n): " + name + "\n" +
+                    "Status: " + status + "\n" +
+                    "Songwunsch: " + (song ? song : "Kein spezieller Wunsch") + "\n" +
+                    "Zusatzinfos/Allergien: " + info + "\n\n" +
+                    "Wir freuen uns!"
+                );
+
+                window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+            }, 1200);
+        }
+    </script>
+
+</body>
+</html>
